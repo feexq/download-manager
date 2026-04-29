@@ -1,0 +1,75 @@
+/* Стилі для кнопки завантаження */
+.download-button {
+    position: absolute;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.download-button:hover {
+    background-color: #45a049;
+}
+
+/* Стилі для статусного повідомлення */
+.status-message {
+    margin-top: 5px;
+    font-size: 12px;
+    position: absolute;
+    z-index: 1000;
+}
+
+/* Стилі для спливаючого вікна */
+.popup-container {
+    padding: 20px;
+    width: 300px;
+}
+
+#urlInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#dropZone {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 200px;
+    height: 50px;
+    border: 2px dashed #ccc;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 50px;
+    background-color: #f9f9f9;
+    color: #ccc;
+    z-index: 1000;
+}
+
+#dropZone.dragover {
+    border-color: #4CAF50;
+    color: #4CAF50;
+}
+
+#sendButton {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#sendButton:hover {
+    background-color: #45a049;
+}
+
+#statusMessage {
+    margin-top: 10px;
+    font-size: 14px;
+}
+

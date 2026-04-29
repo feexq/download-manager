@@ -1,0 +1,73 @@
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-background-color: #F4F4F4;
+}
+
+.button {
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #e6e6e6);
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-text-fill: #333333;
+    -fx-padding: 5 15;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #f0f0f0, #d9d9d9);
+}
+
+.button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #e6e6e6, #cccccc);
+}
+
+.tab-pane {
+    -fx-tab-min-width: 80px;
+    -fx-tab-max-width: 150px;
+    -fx-tab-min-height: 30px;
+    -fx-tab-close-button-visible: false;
+}
+
+.tab {
+    -fx-background-color: #ffffff;
+    -fx-border-color: transparent transparent #cccccc transparent;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.tab:selected {
+    -fx-background-color: #F4F4F4;
+    -fx-border-color: #0078D7 #0078D7 #F4F4F4 #0078D7;
+    -fx-border-width: 2px 2px 0 2px;
+}
+
+.text-field {
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 5 10;
+    -fx-font-size: 14px;
+}
+
+.text-field:focused {
+    -fx-border-color: #0078D7;
+    -fx-border-width: 2px;
+}
+
+.label {
+    -fx-text-fill: #333333;
+    -fx-font-size: 14px;
+    -fx-padding: 5 0;
+}
+
+.hbox, .vbox {
+    -fx-spacing: 10;
+    -fx-padding: 10;
+}
+
+.list-view {
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 5;
+}

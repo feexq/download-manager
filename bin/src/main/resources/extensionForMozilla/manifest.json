@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "URL Button Extension",
+  "version": "1.0",
+  "description": "Додає кнопку біля URL-адрес на сторінці",
+  "permissions": ["activeTab", "scripting"],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "feexttaoa@gmail.com"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
