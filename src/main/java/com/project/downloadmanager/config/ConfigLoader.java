@@ -26,8 +26,8 @@ public class ConfigLoader {
     }
 
     public static void saveConfig(String downloadDirectory, int maxSpeed,
-                                  String p2pDirectory, int p2pPort,
-                                  String p2pServerAddress, int p2pServerPort) {
+            String p2pDirectory, int p2pPort,
+            String p2pServerAddress, int p2pServerPort) {
         properties.setProperty("download.directory", downloadDirectory);
         properties.setProperty("download.maxSpeed", String.valueOf(maxSpeed));
         properties.setProperty("p2p.directory", p2pDirectory);
