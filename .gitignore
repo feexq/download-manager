@@ -46,3 +46,4 @@ build/
 
 ### Environment ###
 .env
+src/main/resources/config.properties
