@@ -19,7 +19,7 @@ DownloadManager is a feature-rich desktop utility built with **JavaFX 21** and *
    ```bash
    ./scripts/start.bat # Windows or ./scripts/start.sh for Linux/macOS
    ```
-   *(This script will automatically build the project on first run)*
+   *(This script uses Maven Wrapper and will automatically build the project on first run. No manual Maven installation required!)*
 
 2. **Advanced Features**:
    To set up browser extensions or the P2P network, see the [Advanced Setup Guide](ADVANCED_SETUP.md).

@@ -1,9 +1,11 @@
 @echo off
-cd ..
+cd /d "%~dp0.."
+
 if not exist "target\DownloadManager-1.0-SNAPSHOT.jar" (
     echo Project not built. Running initial setup...
-    call mvn clean install
+    call mvnw.cmd clean install
 )
+
 echo Starting Download Manager...
-mvn javafx:run
+call mvnw.cmd javafx:run
 pause
