@@ -11,35 +11,21 @@ public class DatabaseConnection {
 
     static {
         try (Connection conn = DriverManager.getConnection(URL);
-             Statement stmt = conn.createStatement()) {
-            stmt.execute("CREATE TABLE IF NOT EXISTS downloads ("
-                    + "id INTEGER PRIMARY KEY,"
-                    + "url TEXT,"
-                    + "size INTEGER,"
-                    + "downloaded INTEGER,"
-                    + "start_time TEXT,"
-                    + "end_time TEXT,"
-                    + "status TEXT"
-                    + ")");
-            stmt.execute("CREATE TABLE IF NOT EXISTS peer_file_info ("
-                    + "id INTEGER PRIMARY KEY,"
-                    + "fileName TEXT,"
-                    + "address TEXT,"
-                    + "port INTEGER"
-                    + ")");
-            stmt.execute("CREATE TABLE IF NOT EXISTS log_error ("
-                    + "id INTEGER PRIMARY KEY,"
-                    + "download_id INTEGER,"
-                    + "error_message TEXT,"
-                    + "created_at TEXT"
-                    + ")");
-            stmt.execute("CREATE TABLE IF NOT EXISTS download_statistics ("
-                    + "id INTEGER PRIMARY KEY,"
-                    + "downloads INTEGER,"
-                    + "downloads_size INTEGER,"
-                    + "download_total_time INTEGER"
-                    + ")");
-        } catch (SQLException e) {
+             Statement stmt = conn.createStatement();
+             java.io.InputStream is = DatabaseConnection.class.getResourceAsStream("/schema.sql")) {
+            
+            if (is != null) {
+                String schemaSql = new String(is.readAllBytes(), java.nio.charset.StandardCharsets.UTF_8);
+                String[] statements = schemaSql.split(";");
+                for (String sqlStmt : statements) {
+                    if (!sqlStmt.trim().isEmpty()) {
+                        stmt.execute(sqlStmt.trim());
+                    }
+                }
+            } else {
+                System.err.println("schema.sql not found in resources");
+            }
+        } catch (SQLException | java.io.IOException e) {
             System.err.println("Failed to initialize database: " + e.getMessage());
         }
     }
