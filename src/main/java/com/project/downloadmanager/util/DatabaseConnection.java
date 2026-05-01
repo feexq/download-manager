@@ -12,7 +12,7 @@ public class DatabaseConnection {
     static {
         try (Connection conn = DriverManager.getConnection(URL);
              Statement stmt = conn.createStatement()) {
-            String sql = "CREATE TABLE IF NOT EXISTS downloads ("
+            stmt.execute("CREATE TABLE IF NOT EXISTS downloads ("
                     + "id INTEGER PRIMARY KEY,"
                     + "url TEXT,"
                     + "size INTEGER,"
@@ -20,8 +20,25 @@ public class DatabaseConnection {
                     + "start_time TEXT,"
                     + "end_time TEXT,"
                     + "status TEXT"
-                    + ")";
-            stmt.execute(sql);
+                    + ")");
+            stmt.execute("CREATE TABLE IF NOT EXISTS peer_file_info ("
+                    + "id INTEGER PRIMARY KEY,"
+                    + "fileName TEXT,"
+                    + "address TEXT,"
+                    + "port INTEGER"
+                    + ")");
+            stmt.execute("CREATE TABLE IF NOT EXISTS log_error ("
+                    + "id INTEGER PRIMARY KEY,"
+                    + "download_id INTEGER,"
+                    + "error_message TEXT,"
+                    + "created_at TEXT"
+                    + ")");
+            stmt.execute("CREATE TABLE IF NOT EXISTS download_statistics ("
+                    + "id INTEGER PRIMARY KEY,"
+                    + "downloads INTEGER,"
+                    + "downloads_size INTEGER,"
+                    + "download_total_time INTEGER"
+                    + ")");
         } catch (SQLException e) {
             System.err.println("Failed to initialize database: " + e.getMessage());
         }
